@@ -1,1 +1,39 @@
-<p>Hola</p>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+
+<body>
+
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>-</th>
+                <th>-</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% contactos.forEach(element => { %>
+                <tr>
+                    <td scope="row"> <%=element.nombre %></td>
+                    <td><%=element.pellido %></td>
+                    <td><%=element.correo %></td>
+                    <td><%=element.tel %></td>
+                    <td>Borrar</td>
+                    <td>Editar</td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <%- include('../partials/jsBootstrap.ejs') %>
+
+</body>
+
+</html>

@@ -4,8 +4,10 @@ var agenda = require('../model/Agenda'); //Importamos el modelo de Agenda
 module.exports = {
     index: function(req, res) {
         agenda.obtener(conexion, function(err, datos){
-            console.log(datos);
-            res.render('agenda/index', { title: 'Agenda' })
+            // console.log(JSON.parse(datos).length)
+            // console.log(typeof(datos))
+            
+            res.render('agenda/index', { title: 'Agenda', contactos: datos });
         });
     }
 };
