@@ -7,5 +7,6 @@ const AgendaController = require('../controllers/AgendaController');
 /* GET home page. */
 router.get('/', HomeController.index);
 router.get('/agenda', AgendaController.index);
+router.get('/agenda/crear', AgendaController.crear);
 
 module.exports = router;

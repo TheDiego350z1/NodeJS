@@ -9,5 +9,8 @@ module.exports = {
             
             res.render('agenda/index', { title: 'Agenda', contactos: datos });
         });
+    },
+    crear: function(req, res) {
+        res.render('agenda/crear', { title: 'Crear nuevo contacto ' });
     }
 };
