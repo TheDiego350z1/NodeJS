@@ -8,14 +8,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-6">
-                <a href="/agenda/crear"> <button class="btn btn-primary ">Crear Contacto</button></a>
-            </div>
-            <div class="col-6 d-flex justify-content-center">
+            <div class="col-11 d-flex justify-content-end">
                 <a href="/agenda/crear"> <button class="btn btn-primary ">Crear Contacto</button></a>
             </div>
         </div>
-
+        <br>
         <table class="table table-light">
             <thead class="thead-light">
                 <tr>
@@ -29,14 +26,22 @@
             </thead>
             <tbody>
                 <% contactos.forEach(element => { %>
-                    <tr>
-                        <td scope="row"> <%=element.nombre %></td>
-                        <td><%=element.pellido %></td>
-                        <td><%=element.correo %></td>
-                        <td><%=element.tel %></td>
-                        <td>Borrar</td>
-                        <td>Editar</td>
-                    </tr>
+                <tr>
+                    <td scope="row"> <%=element.nombre %></td>
+                    <td><%=element.pellido %></td>
+                    <td><%=element.correo %></td>
+                    <td><%=element.tel %></td>
+                    <td>
+                        <form action="post" action="/agenda/editar/<%=element.id%>">
+                            <input type="submit" class="btn btn-primary" value="Borrar" />
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="/agenda/eliminar/<%=element.id%>">
+                            <input type="submit" class="btn btn-danger" value="Borrar" />
+                        </form>
+                    </td>
+                </tr>
                 <% }) %>
             </tbody>
         </table>
