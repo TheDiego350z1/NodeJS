@@ -32,13 +32,13 @@
                     <td><%=element.correo %></td>
                     <td><%=element.tel %></td>
                     <td>
-                        <form action="post" action="/agenda/editar/<%=element.id%>">
-                            <input type="submit" class="btn btn-primary" value="Borrar" />
+                        <form method="get" action="/agenda/editar/<%=element.id%>">
+                            <input type="submit" class="btn btn-primary" value="Editar" />
                         </form>
                     </td>
                     <td>
                         <form method="post" action="/agenda/eliminar/<%=element.id%>">
-                            <input type="submit" onclick="kill()" id="btn-delete" class="btn btn-danger" value="Borrar" />
+                            <input type="submit" id="btn-delete" class="btn btn-danger" value="Borrar" />
                         </form>
                     </td>
                 </tr>

@@ -22,10 +22,33 @@ module.exports = {
         });
     },
     eliminar: function(req, res) {
-        console.log("Recepción de datos");
-        console.log(req.params.id);
         agenda.borrar(conexion, req.params.id, function(err){
             res.redirect('/agenda');
         });
+    },
+    editar: function(req, res) {
+        agenda.retornarDatosID(conexion, req.params.id, function(err, registro) {
+            if(!err) {
+                console.log(registro[0])
+                res.render('agenda/editar', { title: 'Editar', contacto: registro[0]});
+            } else {
+                console.log(err);
+            }
+        });
+    },
+    actualizar: function(req, res) {
+        console.log('actualizar')
+        console.log(req.body.nombre);
+
+        if(req.body.nombre && req.body.pellido && req.body.correo && req.body.tel) {
+            agenda.actualixar(conexion, req.body, function(err){
+                if(err){
+                    console.log(err)
+                }
+            });
+
+            res.redirect('/agenda')
+        }
+
     }
 };
