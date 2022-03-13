@@ -20,5 +20,12 @@ module.exports = {
                 console.log(err)
             }
         });
+    },
+    eliminar: function(req, res) {
+        console.log("Recepción de datos");
+        console.log(req.params.id);
+        agenda.borrar(conexion, req.params.id, function(err){
+            res.redirect('/agenda');
+        });
     }
 };
