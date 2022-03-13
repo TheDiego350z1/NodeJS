@@ -46,7 +46,6 @@ module.exports = {
                     console.log(err)
                 }
             });
-
             res.redirect('/agenda')
         }
 
